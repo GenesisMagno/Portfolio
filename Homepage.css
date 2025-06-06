@@ -1,0 +1,396 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  
+}
+html {
+  scroll-behavior: smooth;
+}
+#page-Container{
+  width: 100%; height: 100vh;
+}
+#navbar{
+  height: 80px; width: 100%;   background: rgba(0, 0, 0, 0.8); display: flex; justify-content: end; 
+  top:0; position: fixed;align-items: center;padding: 0 12.5vw; box-sizing: border-box;z-index: 10;
+}
+
+#nav-logo{
+  margin-right: auto; height: 48px;
+}
+#nav-links-container{
+  display: flex; gap: 16px;  list-style: none;
+}
+
+.nav-link-items {
+  position: relative;
+  padding-bottom: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+#nav-links-container a {
+    color: white;
+    list-style: none;
+    text-decoration: none;
+    font-size: 20.8px;
+}
+
+.nav-link-items::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #ffe07bc2;
+  transition: width 0.3s ease;
+}
+
+.nav-link-items.active::after {
+  width: 100%;
+}
+
+#body{
+  height:100vh; width: 100%;;
+}
+
+#Home{
+  height: 100%; width: 100%;
+}
+
+#Homepage-Background{
+  height: 100%; width: 100%; background: url(Images/Magno.jpg) no-repeat center center/cover; 
+}
+#Homepage-Overlay{
+  position: absolute;
+                    top: 0; left: 0; right: 0; bottom: 0;
+                    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.3));
+                    z-index: 1; 
+}
+#Homepage-Content-Container{
+  height: 100%; width: 100%; display: flex;  align-items: center;padding: 0 12.5vw;box-sizing: border-box;
+}
+#Homepage-Content {
+  max-width: 50%;
+  z-index: 2;
+  color: white;
+  text-align: left;
+}
+
+#Homepage-Content h1 {
+  position: relative;
+  font-size: 5rem;
+  line-height: 1.2;
+  color: #ffe17b;
+  animation: slideRight 3s ease-in-out infinite;
+}
+
+#Homepage-Content h1 span {
+  color: #ffe17b;
+}
+
+#Homepage-Content p {
+  margin: 1rem 0;
+  font-weight: 100;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ccc;
+  opacity: 0;
+  transition: all 2s ease-in;
+}
+
+
+@keyframes slideRight {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 20px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+#About{
+  height: 100%; width: 100%; padding: 6.7vw 12.5vw 3.2vw 12.5vw; background-color: rgb(15, 14, 14);
+}
+
+#About-Container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+#About-Header-Container{
+  height: 100%;
+  width: 25%;
+}
+
+#About-Header{
+  color: #ffe07bdb;
+  font-size: 2.2rem;
+  font-weight: 200;
+  padding-bottom: 2rem;
+}
+
+#About-Section{
+  list-style: none;
+}
+.About-Section-Link-Dash{
+  background-color: white;
+  border-radius: 2rem;
+  height: 0.1rem;
+  margin-right: 5px;
+  width: 0.9rem;
+}
+#About-Section a{
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: 0.4s;
+}
+
+#About-Section a.active {
+  color: #ffe07bdb;
+  transform:scale(1.1);
+}
+
+#About-Content-Container{
+  height: 100%;
+  width: 75%;
+  overflow: hidden;
+}
+#About-Content-Container::-webkit-scrollbar {
+  display: none;
+}
+#About-Information{
+  height: 100%;
+  width: 100%;
+  padding: 2.5rem 0;
+  overflow: hidden;
+
+}
+
+.About-Content-Hobbies{
+  background-color: transparent; /* No background */
+  border: 1px solid #ffcc00;      /* Yellow outline */                 /* Space inside */
+  border-radius: 5px; 
+  height:35%;
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3%;
+  transition: all 0.3s;
+}
+
+.About-Content-Hobbies:hover{
+  transform: scale(1.1);
+}
+
+#About-Skills{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.Skills-Container{
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 44%;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(99, 99, 99, 0.646);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(179, 176, 176, 0.3);
+  align-items: center;     
+  margin: 0 3%;   
+  padding: 1.5rem 2.5rem 0 2.5rem;       
+transition: all 0.5s;
+}
+.Skills-Container:hover{
+  
+  transform: scale(1.05);
+}
+
+#About-Education{
+  height: 100%;
+  width: 100%;
+  padding-top: 2.5rem;
+  position: relative;
+}
+
+.Education-Container{
+  display: flex;
+  height: 30%;
+  width: 100%;
+  background: rgba(89, 88, 88, 0.108);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(179, 176, 176, 0.3);
+  align-items: center;      
+  justify-content: center;
+  overflow: hidden;
+
+}
+.education-animation{
+  display: flex;
+  height: 100%;
+  width: 20%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.5s;
+  z-index: 1;
+}
+#education-desc{
+  height: 100%;
+  width: 60%;
+  position: absolute;
+  color: white;
+  left: 35%;
+  opacity:0;
+  transition: opacity  0.1s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#education-desc p{
+  overflow: hidden;
+  font-size: 120%;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  line-height: 150%;
+  word-spacing: 2%;
+  letter-spacing: 1%;
+  text-decoration: none;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: rgba
+}
+.Education-Container:hover .education-animation{
+  transform: translateX(-150%);
+}
+.Education-Container:hover #education-desc{
+  opacity:1;
+  transition: opacity  0.5s ease-in 0.25s;
+}
+.Education-logo{
+  height: 65%; width: 65%; border-radius: 50%;
+}
+
+
+#Projects{
+  height: 100%; width: 100%; padding: 6.7vw 12.5vw 2.5vw 12.5vw; background-color: rgb(15, 14, 14); display: flex;
+  flex-direction: column;
+}
+.project-containers{
+  height: 22.5%; width: 100%;
+  background: rgba(43, 43, 43, 0.108);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(179, 176, 176, 0.3);
+  align-items: center;      
+  justify-content: center;
+  overflow: hidden; 
+}
+#next-project{
+  all: unset;
+  position: absolute;
+  right: 8%;
+  font-size: 1.8rem;
+  transition: all 0.5s;
+  
+}
+#previous-project{
+  all: unset;
+  position: absolute;
+  left: 8%;
+  font-size: 1.8rem;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+#next-project:hover,
+#previous-project:hover {
+  transform: scale(1.3);
+}
+
+.hidden {
+  opacity: 0; /* Make it invisible */
+  transition: opacity 0.5s ease;
+}
+
+#Contact{
+  height: 100%; width: 100%; padding: 6.7vw 12.5vw 3.2vw 12.5vw; background-color: rgb(15, 14, 14); display: flex; justify-content: center; gap: 10%;
+  
+}
+
+
+@media (max-width: 1600px) { /* 15 inch screens */
+  html {
+    font-size: 14px;
+  }
+  #info p{
+    font-size: 1.15rem !important;
+    line-height: 1.3 !important;
+
+  }
+  .Skills-Container p{
+    height: 50% !important;
+  }
+  .Skills-Container h1{
+    height: 12.5% !important;
+  }
+  .skills-tools h6{
+    margin-bottom: 1rem!important;
+  }
+  #education-desc p{
+    font-size: 120%;
+  }
+}
+
+@media (max-width: 1440px) { /* 15 inch screens */
+  html {
+    font-size: 13px;
+  }
+  #info p{
+    font-size: 1.15rem !important;
+    line-height: 1.3 !important;
+
+  }
+  .Skills-Container p{
+    height: 50% !important;
+  }
+  .Skills-Container h1{
+    height: 12.5% !important;
+  }
+  .skills-tools h6{
+    margin-bottom: 1rem!important;
+  }
+  #education-desc p{
+    font-size: 120%;
+  }
+  .Education-logo{
+    height: 60%;
+  }
+}
+
+
+
+
