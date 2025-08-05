@@ -2,7 +2,7 @@ const paragraph = document.querySelector("#Homepage-Content p");
 paragraph.style.opacity = "1";
 
 const navLinks = document.querySelectorAll('.nav-link-items');
-const pageSections = document.querySelectorAll('.Page-sections'); // Note plural
+const pageSections = document.querySelectorAll('.Page-sections');
 
 window.addEventListener("scroll", () => {
   let currentSection = "";
@@ -12,7 +12,7 @@ window.addEventListener("scroll", () => {
     const sectionHeight = section.offsetHeight;
 
     if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
-      currentSection = section.getAttribute("id"); // Use `section`, not `pageSections`
+      currentSection = section.getAttribute("id");
     }
   });
 
@@ -28,19 +28,14 @@ const aboutLinks = document.querySelectorAll('.About-Section-Link');
 const aboutContainer = document.querySelector('#About-Content-Container');
 
 aboutLinks.forEach(link => {
-  
   link.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // Remove 'active' class from all links
     aboutLinks.forEach(link => link.classList.remove('active'));
-    
-    // Add 'active' class to the clicked link
     link.classList.add('active');
-    
+
     const targetId = link.getAttribute('href').substring(1);
     const targetSection = document.getElementById(targetId);
-
 
     if (targetSection) {
       const containerTop = aboutContainer.getBoundingClientRect().top;
@@ -55,7 +50,6 @@ aboutLinks.forEach(link => {
   });
 });
 
-// Get the next project
 const nextButton = document.querySelector("#next-project");
 const previousButton = document.querySelector("#previous-project");
 const stackContainer = document.querySelector("#tech-stack-container");
@@ -70,7 +64,7 @@ const website = document.querySelector("#website");
 let counter = 0;
 
 const project = {
-  title: ["PORTFOLIO", "GENX", "Bare Best", "BETTER TASTE","bebeng"],
+  title: ["PORTFOLIO", "GENX", "Bare Best", "BETTER TASTE", "bebeng"],
   description: [
     "Welcome to my portfolio website. Here, I showcase the projects I've built and share a bit about myself as a developer. The About Me section gives insight into my background and interests, while the Projects section highlights my work and technical skills. This site reflects my growth and passion for web development.",
     "I developed a local anime player website designed to organize and play anime episodes directly from your computer’s storage. Instead of streaming, this site acts as a clean, user-friendly interface where you can browse, select, and watch your downloaded anime files. It mimics the experience of an online platform, but everything runs locally — giving you full control over your collection without needing an internet connection.",
@@ -79,7 +73,7 @@ const project = {
     "bebengs"
   ],
   image: ["Images/code.png", "Images/geennx.png", "Images/barebest.png", "Images/bettertaste.png", "Images/code.png"],
-  applicationType: ["(Website)", "(Website)", "(Website)", "(Web App)","(Mobile App)"],
+  applicationType: ["(Website)", "(Website)", "(Website)", "(Web App)", "(Mobile App)"],
   techStack: [
     ["html", "css", "javascript"],
     ["html", "css", "javascript"],
@@ -88,25 +82,30 @@ const project = {
     ["android", "java", "firebase"]
   ],
   github: [
-  "https://github.com/GenesisMagno/Portfolio.git",
-  "https://github.com/GenesisMagno/Geennx.git",
-  "https://github.com/GenesisMagno/Bare-best.git",
-  "https://github.com/GenesisMagno/React-Laravel.git",
-  "https://github.com/yourusername/bebeng"
-],
-website: [
-  "n/a",
-  "n/a",
-  "n/a",
-  "n/a",
-  "n/a"
-]
-
+    "https://github.com/GenesisMagno/Portfolio.git",
+    "https://github.com/GenesisMagno/Geennx.git",
+    "https://github.com/GenesisMagno/Bare-best.git",
+    "https://github.com/GenesisMagno/React-Laravel.git",
+    "https://github.com/yourusername/bebeng"
+  ],
+  website: [
+    "n/a",
+    "n/a",
+    "n/a",
+    "n/a",
+    "n/a"
+  ]
 };
+
+// ✅ Preload images to avoid flicker after deployment
+project.image.forEach((src) => {
+  const img = new Image();
+  img.src = src;
+});
 
 // Function to render tech stack icons
 function renderTechStack(stackArray) {
-  stackContainer.innerHTML = ""; // Clear previous icons
+  stackContainer.innerHTML = "";
 
   stackArray.forEach(tech => {
     const icon = document.createElement("i");
@@ -142,13 +141,13 @@ function renderTechStack(stackArray) {
         icon.className = "fa-brands fa-java";
         icon.style.color = "blue";
         break;
-        case "android":
+      case "android":
         icon.className = "fa-brands fa-android";
         icon.style.color = "rgb(98, 255, 0)";
         break;
       case "firebase":
         icon.className = "material-symbols-outlined";
-        icon.textContent = "fireplace"; // or another relevant symbol name
+        icon.textContent = "fireplace";
         icon.style.color = "orange";
         break;
       default:
@@ -182,7 +181,7 @@ nextButton.addEventListener("click", () => {
     website.textContent = project.website[counter];
     image.src = project.image[counter];
 
-    renderTechStack(project.techStack[counter]); // 👈 Call to render icons
+    renderTechStack(project.techStack[counter]);
 
     title.classList.remove("hidden");
     applicationType.classList.remove("hidden");
@@ -217,10 +216,10 @@ previousButton.addEventListener("click", () => {
       applicationType.textContent = project.applicationType[counter];
       description.textContent = project.description[counter];
       github.textContent = project.github[counter];
-    website.textContent = project.website[counter];
+      website.textContent = project.website[counter];
       image.src = project.image[counter];
 
-      renderTechStack(project.techStack[counter]); // 👈 Call to render icons
+      renderTechStack(project.techStack[counter]);
 
       title.classList.remove("hidden");
       applicationType.classList.remove("hidden");
