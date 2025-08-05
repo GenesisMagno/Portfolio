@@ -19,7 +19,7 @@ html {
 }
 
 #nav-logo{
-  margin-right: auto; height: 48px;
+  margin-right: auto; height: 48px;  color: white; display: flex; align-items: center; font-size: 26px; font-weight: 500; 
 }
 #nav-links-container{
   display: flex; gap: 16px;  list-style: none;
@@ -64,12 +64,12 @@ html {
 }
 
 #Homepage-Background{
-  height: 100%; width: 100%; background: url(Images/Magno.jpg) no-repeat center center/cover; 
+  height: 100%; width: 100%; background: url(Images/selfpic2.jpg) no-repeat center center/cover; 
 }
 #Homepage-Overlay{
   position: absolute;
                     top: 0; left: 0; right: 0; bottom: 0;
-                    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.3));
+                    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.7));
                     z-index: 1; 
 }
 #Homepage-Content-Container{

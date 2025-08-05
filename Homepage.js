@@ -64,27 +64,44 @@ const title = document.querySelector("#project-title");
 const applicationType = document.querySelector("#project-application");
 const description = document.querySelector("#project-description");
 const image = document.querySelector("#project-image");
+const github = document.querySelector("#github");
+const website = document.querySelector("#website");
 
 let counter = 0;
 
 const project = {
-  title: ["PORTFOLIO", "GENX", "RENTAL X", "BETTER TASTE","bebeng"],
+  title: ["PORTFOLIO", "GENX", "Bare Best", "BETTER TASTE","bebeng"],
   description: [
     "Welcome to my portfolio website. Here, I showcase the projects I've built and share a bit about myself as a developer. The About Me section gives insight into my background and interests, while the Projects section highlights my work and technical skills. This site reflects my growth and passion for web development.",
     "I developed a local anime player website designed to organize and play anime episodes directly from your computer’s storage. Instead of streaming, this site acts as a clean, user-friendly interface where you can browse, select, and watch your downloaded anime files. It mimics the experience of an online platform, but everything runs locally — giving you full control over your collection without needing an internet connection.",
-    "RENTAL XS",
-    "BETTER TASTES",
+    "Bare Best is a beauty-focused website I built to provide clear, reliable information on skincare, makeup, and beauty products. The goal is to offer helpful tips, honest product reviews, and curated recommendations that make beauty more accessible and less overwhelming for everyone.",
+    "I created Better Taste to make it easier for people to enjoy fresh, homemade meals without the hassle. This web app is built for simple, smooth ordering — whether you're craving comfort food, snacks, or everyday meals.",
     "bebengs"
   ],
-  image: ["Images/code.png", "Images/code2.png", "Images/code.png", "Images/code2.png", "Images/code.png"],
-  applicationType: ["(Website)", "(Website)", "(Web App)", "(Web App)","(Mobile App)"],
+  image: ["Images/code.png", "Images/geennx.png", "Images/barebest.png", "Images/bettertaste.png", "Images/code.png"],
+  applicationType: ["(Website)", "(Website)", "(Website)", "(Web App)","(Mobile App)"],
   techStack: [
     ["html", "css", "javascript"],
     ["html", "css", "javascript"],
-    ["html", "css", "javascript", "php"],
+    ["html", "css", "javascript"],
     ["html", "css", "javascript", "laravel", "react"],
     ["android", "java", "firebase"]
-  ]
+  ],
+  github: [
+  "https://github.com/GenesisMagno/Portfolio.git",
+  "https://github.com/GenesisMagno/Geennx.git",
+  "https://github.com/GenesisMagno/Bare-best.git",
+  "https://github.com/GenesisMagno/React-Laravel.git",
+  "https://github.com/yourusername/bebeng"
+],
+website: [
+  "n/a",
+  "n/a",
+  "n/a",
+  "n/a",
+  "n/a"
+]
+
 };
 
 // Function to render tech stack icons
@@ -154,11 +171,15 @@ nextButton.addEventListener("click", () => {
   description.classList.add("hidden");
   image.classList.add("hidden");
   stackContainer.classList.add("hidden");
+  github.classList.add("hidden");
+  website.classList.add("hidden");
 
   setTimeout(() => {
     title.textContent = project.title[counter];
     applicationType.textContent = project.applicationType[counter];
     description.textContent = project.description[counter];
+    github.textContent = project.github[counter];
+    website.textContent = project.website[counter];
     image.src = project.image[counter];
 
     renderTechStack(project.techStack[counter]); // 👈 Call to render icons
@@ -167,6 +188,8 @@ nextButton.addEventListener("click", () => {
     applicationType.classList.remove("hidden");
     description.classList.remove("hidden");
     image.classList.remove("hidden");
+    github.classList.remove("hidden");
+    website.classList.remove("hidden");
   }, 500);
 
   if (counter >= project.title.length - 1) {
@@ -186,11 +209,15 @@ previousButton.addEventListener("click", () => {
     description.classList.add("hidden");
     image.classList.add("hidden");
     stackContainer.classList.add("hidden");
+    github.classList.add("hidden");
+    website.classList.add("hidden");
 
     setTimeout(() => {
       title.textContent = project.title[counter];
       applicationType.textContent = project.applicationType[counter];
       description.textContent = project.description[counter];
+      github.textContent = project.github[counter];
+    website.textContent = project.website[counter];
       image.src = project.image[counter];
 
       renderTechStack(project.techStack[counter]); // 👈 Call to render icons
@@ -198,6 +225,8 @@ previousButton.addEventListener("click", () => {
       title.classList.remove("hidden");
       applicationType.classList.remove("hidden");
       description.classList.remove("hidden");
+      github.classList.remove("hidden");
+      website.classList.remove("hidden");
       image.classList.remove("hidden");
     }, 500);
 
